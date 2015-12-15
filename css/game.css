@@ -1,0 +1,46 @@
+*
+{
+    margin: 0; padding: 0;
+}
+
+html, body
+{
+    height: 100%; width: 100%;
+}
+canvas
+{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+    display: block;
+}
+
+#myGame{
+	border-style: solid;
+	border-width: 2px;
+	margin-bottom: 10px;
+}
+
+#title{
+	margin-top: 5px;
+	text-align: center;
+}
+
+#GridSlider.slider-selection {
+	background: #BABABA;
+}
+
+#Options1{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#dimensInput{
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#amount{
+	margin-bottom: 10px;
+}

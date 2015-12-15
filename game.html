@@ -1,0 +1,38 @@
+<html>
+<head>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link rel=href="css/game.css" "stylesheet" type="text/css">
+	<link href="css/agency.css" rel="stylesheet">
+	<script type"text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="game.js"></script>
+</head>
+<body>
+
+	<section id="services">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">Adam's Game of Life</h2>
+					<h3 class="section-subheading text-muted">Based on Conway's Game of Life</h3>
+
+					<div id="Options1">
+						<p> Dimensions </p>
+						<input type="range" id="dimensInput" data-slider-step="10" name="dimensInput" min="10" max="1000" value="50" oninput="amount.value=dimensInput.value">
+						<output name="amount" id="amount" for="dimensInput">50</output>
+						<button type="button" class="btn btn-primary" id="Random">Randomize</button>
+						<button type="button" class="btn btn-success" id="Play">Play</button>
+						<button type="button" class="btn btn-danger" id="Stop">Stop</button>
+
+					</div>
+
+					<canvas id="myGame" width="500px" height="500px"></canvas>
+				</div>
+			</div>
+		</div>
+	</section>
+</footer>
+
+</body>
+</html>
