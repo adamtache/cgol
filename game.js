@@ -4,8 +4,9 @@ $(document).ready(function(){
 	var context = canvas.getContext("2d");
 	var arr = [];
 	makeGrid();
-	randomizeInitial();
+	randomizeInitial(false);
 	var interval;
+	var speed = 50;
 
 	function makeGrid(){
 		context.save();
@@ -33,7 +34,7 @@ $(document).ready(function(){
 		context.restore();
 	}
 
-	function randomizeInitial(){
+	function randomizeInitial(reset){
 		var d = canvas.height/10;
 		for(var x=0; x<d; x++){
 			arr.push([]);
@@ -42,7 +43,8 @@ $(document).ready(function(){
 				arr[x][y] = 0;
 			}
 		}
-		randomize();
+		if(reset==false)
+			randomize();
 	};
 
 	function randomize(){
@@ -122,16 +124,55 @@ $(document).ready(function(){
 		return total;
 	}
 
+	function setConditions(){
+		var currHeight = canvas.height;
+		var currWidth = canvas.width;
+		var $height=document.getElementById('amount').value;
+		var $speed=document.getElementById("amount2").value;
+		if($height!=currHeight){
+			draw();
+		}
+		if($speed!=speed){
+			speed = $speed;
+		}
+		function draw(){
+			context.clearRect(0,0,canvas.height,canvas.height);
+			canvas.height = $height*10;
+			canvas.width = $height*10;
+			makeGrid();
+			randomizeInitial(false);
+		}
+	}
+
+	$("#Play").click(function(){
+		interval = setInterval(function(){ play(); }, speed);
+	});
+
+	$("#Step").click(function(){
+		play();
+	});
+
+	$("#SetConditions").click(function(){
+		setConditions();
+	});
+
 	$("#Random").click(function(){
 		randomize();
 	});
 
-	$("#Play").click(function(){
-		interval = setInterval(function(){ play(); }, 10);
-	});
-
 	$("#Stop").click(function(){
 		clearInterval(interval);
+	});
+
+	$("#Reset").click(function(){
+		randomizeInitial(true);
+		var d = canvas.height/10;
+		for(var x=0; x<d; x++){
+			for(var y=0; y<d; y++){
+				context.fillStyle = "white";
+				context.fillRect(x*10+1, y*10+1, 9, 9);
+			}
+		}
 	});
 
 });
