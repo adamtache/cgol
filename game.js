@@ -8,6 +8,25 @@ $(document).ready(function(){
 	var interval;
 	var speed = 50;
 
+	canvas.addEventListener("mousedown", function(evt){
+		var rect = canvas.getBoundingClientRect();
+		var x = Math.round(Math.floor(evt.clientX - rect.left)/10)*10;
+		var y = Math.round(Math.floor(evt.clientY - rect.top)/10)*10;
+		x = x/10-1;
+		y = y/10-1;
+		var val = arr[x][y];
+		if(val==0){
+			arr[x][y] = 1;
+			context.fillStyle = "black";
+			context.fillRect(x*10+1, y*10+1, 9, 9);
+		}
+		else{
+			arr[x][y] = 0;
+			context.fillStyle = "white";
+			context.fillRect(x*10+1, y*10+1, 9, 9);
+		}
+	}, false);
+
 	function makeGrid(){
 		context.save();
 		var gradient = context.createLinearGradient(0,0,canvas.height,0);
@@ -33,7 +52,6 @@ $(document).ready(function(){
 		}
 		context.restore();
 	}
-
 	function randomizeInitial(reset){
 		var d = canvas.height/10;
 		for(var x=0; x<d; x++){
@@ -147,23 +165,18 @@ $(document).ready(function(){
 	$("#Play").click(function(){
 		interval = setInterval(function(){ play(); }, speed);
 	});
-
 	$("#Step").click(function(){
 		play();
 	});
-
 	$("#SetConditions").click(function(){
 		setConditions();
 	});
-
 	$("#Random").click(function(){
 		randomize();
 	});
-
 	$("#Stop").click(function(){
 		clearInterval(interval);
 	});
-
 	$("#Reset").click(function(){
 		randomizeInitial(true);
 		var d = canvas.height/10;
