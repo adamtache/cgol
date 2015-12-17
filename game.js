@@ -7,6 +7,7 @@ $(document).ready(function(){
 	randomizeInitial(false);
 	var interval;
 	var speed = 50;
+	var progress = false;
 
 	canvas.addEventListener("mousedown", function(evt){
 		var rect = canvas.getBoundingClientRect();
@@ -163,7 +164,10 @@ $(document).ready(function(){
 	}
 
 	$("#Play").click(function(){
-		interval = setInterval(function(){ play(); }, speed);
+		if(progress==false){
+			interval = setInterval(function(){ play(); }, speed);
+			progress = true;
+		}
 	});
 	$("#Step").click(function(){
 		play();
@@ -176,6 +180,7 @@ $(document).ready(function(){
 	});
 	$("#Stop").click(function(){
 		clearInterval(interval);
+		progress = false;
 	});
 	$("#Reset").click(function(){
 		randomizeInitial(true);
