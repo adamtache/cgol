@@ -11,10 +11,8 @@ $(document).ready(function(){
 
 	canvas.addEventListener("mousedown", function(evt){
 		var rect = canvas.getBoundingClientRect();
-		var x = Math.round(Math.floor(evt.clientX - rect.left)/10)*10;
-		var y = Math.round(Math.floor(evt.clientY - rect.top)/10)*10;
-		x = x/10-1;
-		y = y/10-1;
+		var x = Math.round(Math.floor(evt.clientX - rect.left)/10)-1;
+		var y = Math.round(Math.floor(evt.clientY - rect.top)/10)-1;
 		var val = arr[x][y];
 		if(val==0){
 			arr[x][y] = 1;
