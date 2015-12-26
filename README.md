@@ -3,7 +3,7 @@
 • Client-side Javascript simulator of Conway's Game of Life cellular automaton, made with HTML, CSS, Javascript, and JQuery.
 • Allows user customization of initial board dimensions and speed of simulation, and implemented HTML5 canvas with randomization of cell states and user drawing of individual cells.
 
-PLAY HERE: http://www.adamtache.github.io/conways-game-of-life
+PLAY HERE: http://adamtache.github.io/conways-game-of-life
 MORE INFO: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
 Rules:
